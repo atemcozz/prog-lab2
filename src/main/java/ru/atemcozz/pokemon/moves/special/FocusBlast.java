@@ -13,21 +13,16 @@ public class FocusBlast extends SpecialMove {
         super(Type.FIGHTING, 120, 70);
     }
 
-    private boolean canLowerSpDefence = false;
+
 
     @Override
     protected void applyOppEffects(Pokemon pokemon) {
-        canLowerSpDefence = false;
-        if (Math.random() <= DEF_LOWERING_CHANCE) {
-            canLowerSpDefence = true;
-            pokemon.setMod(Stat.SPECIAL_DEFENSE, -1);
-        }
+        Effect effect = new Effect().chance(DEF_LOWERING_CHANCE).stat(Stat.SPECIAL_DEFENSE, -1).turns(-1);
+        pokemon.addEffect(effect);
     }
 
     @Override
     protected String describe() {
-        return canLowerSpDefence
-                ? "использует Focus Blast и уменьшает Special Defense цели на 1"
-                : "использует Focus Blast";
+        return "использует Focus Blast";
     }
 }

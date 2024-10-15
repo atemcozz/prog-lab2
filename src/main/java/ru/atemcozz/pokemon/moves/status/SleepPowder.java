@@ -14,20 +14,19 @@ public class SleepPowder extends StatusMove {
         super(Type.GRASS, 0, 75);
     }
 
-    private int turnsCount = 0;
 
     @Override
     protected void applyOppEffects(Pokemon pokemon) {
-        turnsCount = (int) Math.round(Math.random() * (SLEEP_MAX_TURNS - 1) + SLEEP_MIN_TURNS);
-        var effect = new Effect()
+        int turnsCount = (int) Math.round(Math.random() * (SLEEP_MAX_TURNS - 1) + SLEEP_MIN_TURNS);
+        Effect condition = new Effect()
                 .condition(Status.SLEEP)
                 .turns(turnsCount);
-        pokemon.addEffect(effect);
+        pokemon.addEffect(condition);
 
     }
 
     @Override
     protected String describe() {
-        return "использует Sleep Powder, усыпляя цель на " + turnsCount + " ходов";
+        return "использует Sleep Powder";
     }
 }

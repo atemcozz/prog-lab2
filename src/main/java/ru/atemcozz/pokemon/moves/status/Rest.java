@@ -14,10 +14,10 @@ public class Rest extends StatusMove {
 
     @Override
     protected void applySelfEffects(Pokemon pokemon) {
-        var effect = new Effect()
+        Effect condition = new Effect()
                 .condition(Status.SLEEP)
                 .turns(SLEEP_TURNS);
-        pokemon.addEffect(effect);
+        pokemon.setCondition(condition);
         pokemon.setMod(Stat.HP, (int) -(pokemon.getStat(Stat.HP) - pokemon.getHP()));
 
     }

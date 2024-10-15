@@ -13,21 +13,15 @@ public class EarthPower extends SpecialMove {
         super(Type.GROUND, 90, 100);
     }
 
-    private boolean canLowerSpDefence = false;
 
     @Override
     protected void applyOppEffects(Pokemon pokemon) {
-        canLowerSpDefence = false;
-        if (Math.random() <= DEF_LOWERING_CHANCE){
-            canLowerSpDefence = true;
-            pokemon.setMod(Stat.SPECIAL_DEFENSE, -1);
-        }
+        Effect effect = new Effect().chance(DEF_LOWERING_CHANCE).stat(Stat.SPECIAL_DEFENSE, -1).turns(-1);
+        pokemon.addEffect(effect);
     }
 
     @Override
     protected String describe() {
-        return canLowerSpDefence
-                ? "использует Earth Power и уменьшает Special Defense цели на 1"
-                : "использует Earth Power";
+        return "использует Earth Power";
     }
 }

@@ -3,7 +3,7 @@ package ru.atemcozz.pokemon.moves.status;
 import ru.ifmo.se.pokemon.*;
 
 /*
-    Raises the target's Attack by two stages, then confиспользует it.
+    Raises the target's Attack by two stages, then confuses it.
 */
 
 public class Swagger extends StatusMove {

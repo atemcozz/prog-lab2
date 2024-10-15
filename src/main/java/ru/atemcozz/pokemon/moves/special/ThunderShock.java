@@ -1,9 +1,6 @@
 package ru.atemcozz.pokemon.moves.special;
 
-import ru.ifmo.se.pokemon.Effect;
-import ru.ifmo.se.pokemon.Pokemon;
-import ru.ifmo.se.pokemon.SpecialMove;
-import ru.ifmo.se.pokemon.Type;
+import ru.ifmo.se.pokemon.*;
 
 //Inflicts regular damage. Has a 10% chance to paralyze the target.
 
@@ -14,19 +11,15 @@ public class ThunderShock extends SpecialMove {
         super(Type.ELECTRIC, 40, 100);
     }
 
-    private boolean canParalyzeTarget = false;
 
     @Override
     protected void applyOppEffects(Pokemon pokemon) {
-        canParalyzeTarget = false;
-        if (Math.random() <= PARALYZING_CHANCE) {
-            canParalyzeTarget = true;
-            Effect.paralyze(pokemon);
-        }
+        Effect condition = new Effect().chance(PARALYZING_CHANCE).condition(Status.PARALYZE).turns(-1);
+        pokemon.setCondition(condition);
     }
 
     @Override
     protected String describe() {
-        return canParalyzeTarget ? "использует Thunder Shock и парализует цель" : "использует Thunder Shock";
+        return "использует Thunder Shock";
     }
 }

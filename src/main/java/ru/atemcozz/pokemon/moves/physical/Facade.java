@@ -14,13 +14,12 @@ public class Facade extends PhysicalMove {
         super(Type.NORMAL, 70, 100);
     }
 
-    private boolean hasSpecialCondition = false;
 
 
     @Override
     protected void applyOppDamage(Pokemon pokemon, double damage) {
         Status cond = pokemon.getCondition();
-        hasSpecialCondition = cond == Status.BURN || cond == Status.PARALYZE || cond == Status.POISON;
+        boolean hasSpecialCondition = cond == Status.BURN || cond == Status.PARALYZE || cond == Status.POISON;
         double multiplier = hasSpecialCondition ? SP_CONDITION_MULTIPLIER : 1;
         pokemon.setMod(Stat.HP, (int) (damage * multiplier));
     }
@@ -28,8 +27,6 @@ public class Facade extends PhysicalMove {
 
     @Override
     protected String describe() {
-        return hasSpecialCondition
-                ? "использует Facade с двойной силой"
-                : "использует Facade";
+        return "использует Facade";
     }
 }
