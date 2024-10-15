@@ -8,7 +8,12 @@ import ru.ifmo.se.pokemon.Pokemon;
 
 
 public class Main {
-    static void shuffle(Pokemon[] pokemons) {
+    static {
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("Битва завершена");
+        }));
+    }
+    static void shufflePokemons(Pokemon[] pokemons) {
         for (int i = 0; i < pokemons.length - 1; i++) {
             int a = (int) (Math.random() * pokemons.length);
             int b = (int) (Math.random() * pokemons.length);
@@ -18,6 +23,7 @@ public class Main {
         }
     }
     public static void main(String[] args) {
+
         Battle battle = new Battle();
         Pokemon[] pokemons = new Pokemon[]{
                 new Stunfisk("Stunfisk", 1),
@@ -27,14 +33,21 @@ public class Main {
                 new Weepinbell("Weepinbell", 1),
                 new Victreebel("Victreebel", 1),
         };
-        shuffle(pokemons);
+
+        if(pokemons.length < 2) {
+            System.err.println("Не хватает покемонов для старта");
+            System.exit(1);
+        }
+
+        shufflePokemons(pokemons);
         for(int i = 0; i < pokemons.length / 2; i++) {
             battle.addAlly(pokemons[i]);
             battle.addFoe(pokemons[pokemons.length - i - 1]);
         }
 
-
         battle.go();
+
+
 
     }
 }
