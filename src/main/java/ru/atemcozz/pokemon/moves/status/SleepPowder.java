@@ -7,8 +7,8 @@ import ru.ifmo.se.pokemon.*;
     Sleep lasts for 1-3 turns.
  */
 public class SleepPowder extends StatusMove {
-    public static final int SLEEP_MIN_TURNS = 1;
-    public static final int SLEEP_MAX_TURNS = 3;
+    private static final int SLEEP_MIN_TURNS = 1;
+    private static final int SLEEP_MAX_TURNS = 3;
 
     public SleepPowder() {
         super(Type.GRASS, 0, 75);

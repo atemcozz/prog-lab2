@@ -8,7 +8,7 @@ import ru.ifmo.se.pokemon.*;
 */
 
 public class Facade extends PhysicalMove {
-    public static final int SP_CONDITION_MULTIPLIER = 2;
+    private static final int SP_CONDITION_MULTIPLIER = 2;
 
     public Facade() {
         super(Type.NORMAL, 70, 100);

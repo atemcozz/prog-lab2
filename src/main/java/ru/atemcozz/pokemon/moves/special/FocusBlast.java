@@ -7,7 +7,7 @@ import ru.ifmo.se.pokemon.*;
     Has a 10% chance to lower the target's Special Defense by one stage.
 */
 public class FocusBlast extends SpecialMove {
-    public static final double DEF_LOWERING_CHANCE = 0.1;
+    private static final double DEF_LOWERING_CHANCE = 0.1;
 
     public FocusBlast() {
         super(Type.FIGHTING, 120, 70);

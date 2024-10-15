@@ -8,7 +8,7 @@ import ru.ifmo.se.pokemon.*;
  */
 public class EnergyBall extends SpecialMove {
 
-    public static final double DEF_LOWERING_CHANCE = 0.1;
+    private static final double DEF_LOWERING_CHANCE = 0.1;
 
     public EnergyBall() {
         super(Type.GRASS, 90, 100);

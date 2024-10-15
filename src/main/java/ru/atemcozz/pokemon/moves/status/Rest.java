@@ -5,7 +5,7 @@ import ru.ifmo.se.pokemon.*;
 //User sleeps for two turns, completely healing itself.
 
 public class Rest extends StatusMove {
-    public static final int SLEEP_TURNS = 2;
+    private static final int SLEEP_TURNS = 2;
 
     public Rest() {
         super(Type.PSYCHIC, 0, 0);

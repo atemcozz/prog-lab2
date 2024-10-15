@@ -8,7 +8,7 @@ import ru.ifmo.se.pokemon.Type;
 //Inflicts regular damage. Has a 10% chance to paralyze the target.
 
 public class ThunderShock extends SpecialMove {
-    public static final double PARALYZING_CHANCE = 0.1;
+    private static final double PARALYZING_CHANCE = 0.1;
 
     public ThunderShock() {
         super(Type.ELECTRIC, 40, 100);
