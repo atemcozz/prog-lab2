@@ -32,6 +32,8 @@ public class Main {
             battle.addAlly(pokemons[i]);
             battle.addFoe(pokemons[pokemons.length - i - 1]);
         }
+
+
         battle.go();
 
     }
